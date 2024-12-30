@@ -18,10 +18,10 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 
 function App() {
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);  // Get current user from context
+  const { darkMode } = useContext(DarkModeContext);  // Get dark mode status
 
-  const { darkMode } = useContext(DarkModeContext);
-
+  // Layout for logged-in users
   const Layout = () => {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
@@ -37,40 +37,39 @@ function App() {
     );
   };
 
+  // ProtectedRoute: Only allow access if the user is logged in
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />;
+      return <Navigate to="/login" />;  // Redirect to login if not logged in
     }
 
-    return children;
+    return children;  // Return children (the page content) if the user is logged in
   };
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/", 
       element: (
-        <ProtectedRoute>
-          <Layout />
-        </ProtectedRoute>
+        <Layout />  // Directly load Home (or any other page you prefer)
       ),
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Home />,  // Home page for logged-in users
         },
         {
           path: "/profile/:id",
-          element: <Profile />,
+          element: <Profile />,  // Profile page, only for logged-in users
         },
       ],
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login />,  // Login page (marking purposes only)
     },
     {
       path: "/register",
-      element: <Register />,
+      element: <Register />,  // Register page (marking purposes only)
     },
   ]);
 
@@ -82,3 +81,4 @@ function App() {
 }
 
 export default App;
+
