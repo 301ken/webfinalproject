@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+WebFinal Project
+This is a web application that implements a social media-like platform with features like user authentication, profiles, and a basic feed. Users can register, log in, view a home feed, interact with posts, follow/unfollow users, and view other users' profiles. This project is built with React for the frontend, utilizing react-router-dom for routing, Chakra UI for styling, and Vercel for deployment.(I was plannig to create full stack website,but i couldn't manage backend part.That's why parts of website not clickable and just for style)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+User Authentication:
+Register and log in users.
+Session management and protected routes.
+Profile Management:
+View user profiles.
+Follow/unfollow other users.
+Home Feed:
+Display posts from other users.
+Like posts, comment, and share.
+Responsive Design:
+Built to be responsive and adaptive across devices using Chakra UI's flexible grid system.
+Technologies Used
+Frontend:
 
-## Available Scripts
+React
+react-router-dom
+Chakra UI
+Axios (for HTTP requests)
+react-toastify (for toast notifications)
+Backend (optional, if you were to implement it later):
 
-In the project directory, you can run:
+REST API (e.g., with Node.js, Express)
+Deployment:
 
-### `npm start`
+Vercel (for hosting the frontend)
+Project Setup
+1. Clone the repository
+To get started, clone the repository to your local machine:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+git clone https://github.com/301ken/webfinal.git
+2. Install Dependencies
+Navigate to the project directory and install the dependencies:
 
-### `npm test`
+bash
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cd myapp
+npm install
+3. Set Up Environment Variables
+You will need to configure some environment variables (like API URLs and tokens). Create a .env file in the root directory and add any required environment variables:
 
-### `npm run build`
+bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+REACT_APP_API=http://localhost:5000/  # Update this to your backend API URL
+4. Start the Development Server
+Once the dependencies are installed, you can start the development server:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm start
+This will run the application locally at http://localhost:3000.
 
-### `npm run eject`
+Routing Overview
+Home Page (/home): Displays posts and allows interaction (like, comment, share).
+Profile Page (/profile/:id): Displays the user profile page with their posts, followers, and following list.
+Login Page (/login): A form for users to log in.
+Register Page (/register): A form for users to register an account.
+Components Breakdown
+1. Navbar
+Displays navigation links to different sections (Home, Profile, etc.).
+Contains options for logging out, user settings, etc.
+2. PostCard
+Represents a single post.
+Allows users to interact with posts by liking, commenting, or sharing.
+3. UserCard
+Displays user profile details like name, followers, and following.
+Allows users to follow or unfollow other users.
+4. ProtectedRoute
+Ensures that only logged-in users can access certain pages, such as the Home and Profile pages.
+Redirects unauthenticated users to the login page.
+Deployment
+This project is deployed on Vercel, allowing users to access the app directly via the following link:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+App Link: https://webfinalproject-46fj.vercel.app/
+Testing and Development Notes
+Login and Registration: The app assumes basic user authentication is in place. You can add real backend logic to authenticate users.
+Protected Routes: The app redirects unauthenticated users to the login page when accessing restricted routes.
+Responsive Design: The app uses Chakra UI's built-in responsive utilities to ensure a seamless experience across devices.
